@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Ovo&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  body {
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    color: #171717;
+  }
+
+  html.dark, html.dark body, .dark body {
+    background-color: #11001F !important;
+    color: #ffffff !important;
+  }
+
+  /* Robust Card styling for light and dark modes */
+  .portfolio-card {
+    background-color: #ffffff;
+    border: 1px solid rgb(229 231 235);
+    transition: all 0.3s ease;
+  }
+
+  html.dark .portfolio-card {
+    background-color: #19092e !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Custom smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(150, 150, 150, 0.3);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.5);
+  }
+}
+
+.font-Ovo, .font-ovo, .font-serif {
+  font-family: 'Ovo', Georgia, serif !important;
+}
+
+.font-Outfit, .font-sans {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Lenis Smooth Scrolling Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Glowing Border Effect for Bento Services */
+.glowing-card {
+  position: relative;
+  border-radius: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.glowing-card::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(221, 123, 187, 0.35), rgba(215, 159, 30, 0.35), rgba(90, 146, 44, 0.35), rgba(76, 120, 148, 0.35));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.glowing-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, #dd7bbb, #d79f1e, #5a922c, #4c7894);
+}
