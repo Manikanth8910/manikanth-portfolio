@@ -1,4 +1,5 @@
 import React from 'react';
+import { Code2 } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -40,9 +41,9 @@ export const AboutSection: React.FC = () => {
                 </text>
               </svg>
             </div>
-            <p className="absolute text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none">
-              🧑🏻‍💻
-            </p>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none flex items-center justify-center">
+              <Code2 className="w-8 h-8 text-black dark:text-white" />
+            </div>
           </div>
         </div>
 

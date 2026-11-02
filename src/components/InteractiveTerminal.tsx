@@ -191,10 +191,10 @@ export const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ isOpen
         outputNode = (
           <div className="text-xs space-y-2 text-slate-300 bg-emerald-950/20 p-2.5 rounded border border-emerald-500/30">
             <p className="text-emerald-400 font-bold text-sm">Why hire Manikanth?</p>
-            <p>✓ Shipped real software used by 1,500+ active university users.</p>
-            <p>✓ Engineered low-latency IoT telematics (&lt;200ms) with EMQX & Redis.</p>
-            <p>✓ Rigorous systems depth (8.99 CGPA, Linux server hardening, Nginx tuning).</p>
-            <p>✓ Autonomous, self-directed builder who owns projects end-to-end.</p>
+            <p>[+] Shipped real software used by 1,500+ active university users.</p>
+            <p>[+] Engineered low-latency IoT telematics (&lt;200ms) with EMQX & Redis.</p>
+            <p>[+] Rigorous systems depth (8.99 CGPA, Linux server hardening, Nginx tuning).</p>
+            <p>[+] Autonomous, self-directed builder who owns projects end-to-end.</p>
             <p className="text-sky-300 font-mono">Let's talk: manikanthpanuganti@gmail.com</p>
           </div>
         );

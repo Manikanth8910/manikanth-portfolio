@@ -37,10 +37,10 @@ export const ExperienceSection: React.FC = () => {
       description:
         'Launched a React and React Native university events platform for 1,500+ students and 20+ clubs, reaching 500+ Google Play downloads. Built high-concurrency Node.js/Express APIs with SQLite in WAL mode for lock-free reads, added JWT/Google OAuth, automated QR check-in, and Docker/GitHub Actions releases.',
       bullets: [
-        '🌐 Hubverse Platform: hubverse.in — Live campus event & club orchestration ecosystem.',
-        '⚡ SQLite WAL Mode: Zero-lock concurrent read architecture slashing check-in latency.',
-        '🎟️ QR Admission Engine: Cryptographically signed offline-first QR ticket validation cutting queue times by 70%.',
-        '🚀 Automated CI/CD: Docker containerization with GitHub Actions pipelines reducing deployment cycles by 60%.',
+        'Hubverse Platform: hubverse.in — Live campus event & club orchestration ecosystem.',
+        'SQLite WAL Mode: Zero-lock concurrent read architecture slashing check-in latency.',
+        'QR Admission Engine: Cryptographically signed offline-first QR ticket validation cutting queue times by 70%.',
+        'Automated CI/CD: Docker containerization with GitHub Actions pipelines reducing deployment cycles by 60%.',
       ],
       images: [
         { src: '/assets/hubverse_project.webp', alt: 'Hubverse Platform' },
@@ -54,9 +54,9 @@ export const ExperienceSection: React.FC = () => {
       description:
         'Directing server infrastructure security, vulnerability assessments, and systems hardening across incubated startups and institute servers.',
       bullets: [
-        '🛡️ Penetration Testing: Performed comprehensive VAPT across 5+ production Linux servers, remediating 15+ critical security misconfigurations.',
-        '🔒 Server Hardening: Configured SSH public-key enforcement, UFW/iptables firewalls, and fine-grained RBAC policies.',
-        '📊 Intrusion Monitoring: Implemented real-time intrusion monitoring and log anomaly alerting with automated fail2ban IP mitigation.',
+        'Penetration Testing: Performed comprehensive VAPT across 5+ production Linux servers, remediating 15+ critical security misconfigurations.',
+        'Server Hardening: Configured SSH public-key enforcement, UFW/iptables firewalls, and fine-grained RBAC policies.',
+        'Intrusion Monitoring: Implemented real-time intrusion monitoring and log anomaly alerting with automated fail2ban IP mitigation.',
       ],
       images: [
         { src: '/assets/jarsh_wfa_project.webp', alt: 'Industrial Telemetry & Systems Security' },
@@ -69,9 +69,9 @@ export const ExperienceSection: React.FC = () => {
       description:
         'Maintained 10+ backend microservices and 3 production web properties at 99.8% uptime; Nginx load balancing cut latency 35%, and JMeter testing improved throughput 40% at 1,000+ concurrent users.',
       bullets: [
-        '📈 99.8% Uptime SLA: Maintained 10+ backend microservices and 3 production web properties with high availability.',
-        '⚡ Nginx Load Balancing: Configured upstream reverse proxies and caching, reducing response latency by 35%.',
-        '🚀 Apache JMeter Benchmarking: Stress-tested APIs under sustained 1,000+ concurrent user loads, improving throughput by 40%.',
+        '99.8% Uptime SLA: Maintained 10+ backend microservices and 3 production web properties with high availability.',
+        'Nginx Load Balancing: Configured upstream reverse proxies and caching, reducing response latency by 35%.',
+        'Apache JMeter Benchmarking: Stress-tested APIs under sustained 1,000+ concurrent user loads, improving throughput by 40%.',
       ],
     },
     {
@@ -81,9 +81,9 @@ export const ExperienceSection: React.FC = () => {
       description:
         'Organized 4+ technical workshops and coding hackathons for 500+ students; managed live coding judge servers and problem sets.',
       bullets: [
-        '🏆 Hackathons & Bootcamps: Organized 4+ technical workshops and coding hackathons for 500+ participants.',
-        '💻 Automated Judge System: Configured and operated real-time online judge servers and algorithmic evaluation problem sets.',
-        '🎓 Technical Mentorship: Mentored junior engineering students in Data Structures, Algorithms, and Full-Stack Engineering.',
+        'Hackathons & Bootcamps: Organized 4+ technical workshops and coding hackathons for 500+ participants.',
+        'Automated Judge System: Configured and operated real-time online judge servers and algorithmic evaluation problem sets.',
+        'Technical Mentorship: Mentored junior engineering students in Data Structures, Algorithms, and Full-Stack Engineering.',
       ],
     },
     {
