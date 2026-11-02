@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = () => {
           <h3 className="flex items-end justify-center gap-2 text-md md:text-2xl mb-3 font-Ovo h-9 invisible">
             Hlo! I'm Manikanth
           </h3>
-          <h1 className="text-3xl text-white dark:text-slate-400 sm:text-6xl lg:text-[66px] font-Ovo leading-tight">
+          <h1 className="text-3xl text-white dark:text-slate-400 sm:text-6xl lg:text-[66px] font-Ovo leading-tight font-bold">
             Still chasing the kid who wanted to build robots.
           </h1>
           <p className="max-w-2xl mx-auto font-Ovo text-sm md:text-base leading-relaxed invisible">
