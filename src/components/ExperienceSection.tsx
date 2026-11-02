@@ -43,8 +43,8 @@ export const ExperienceSection: React.FC = () => {
         '🚀 Automated CI/CD: Docker containerization with GitHub Actions pipelines reducing deployment cycles by 60%.',
       ],
       images: [
-        { src: '/assets/nativex.webp', alt: 'Hubverse Platform' },
-        { src: '/assets/thoht.webp', alt: 'Hubverse Event Admissions' },
+        { src: '/assets/hubverse_project.webp', alt: 'Hubverse Platform' },
+        { src: '/assets/vnr_parking_project.webp', alt: 'VNR Smart Parking Management' },
       ],
     },
     {
@@ -59,7 +59,7 @@ export const ExperienceSection: React.FC = () => {
         '📊 Intrusion Monitoring: Implemented real-time intrusion monitoring and log anomaly alerting with automated fail2ban IP mitigation.',
       ],
       images: [
-        { src: '/assets/lakeview.webp', alt: 'Server Infrastructure & Security' },
+        { src: '/assets/jarsh_wfa_project.webp', alt: 'Industrial Telemetry & Systems Security' },
       ],
     },
     {
