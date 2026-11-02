@@ -24,7 +24,7 @@ export const Hero: React.FC<HeroProps> = () => {
             <h3 className="flex items-end justify-center gap-2 text-md md:text-2xl mb-3 font-Ovo h-9 invisible">
               Hlo! I'm Manikanth
             </h3>
-            <h1 className="text-3xl text-black dark:text-white sm:text-6xl lg:text-[66px] font-Ovo leading-tight">
+            <h1 className="text-3xl text-black dark:text-white sm:text-6xl lg:text-[66px] font-Ovo leading-tight cursor-pointer">
               Making sense of problems through creation
             </h1>
             <p className="max-w-2xl mx-auto font-Ovo text-sm md:text-base leading-relaxed invisible">
@@ -87,12 +87,12 @@ export const Hero: React.FC<HeroProps> = () => {
         {/* Space matching the h1 so the mask shows through without being covered */}
         <div
           aria-hidden="true"
-          className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo leading-tight invisible select-none pointer-events-none"
+          className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo leading-tight invisible select-none pointer-events-none cursor-pointer"
         >
           Making sense of problems through creation
         </div>
 
-        <p className="max-w-2xl mx-auto font-Ovo pointer-events-auto text-neutral-600 dark:text-neutral-300 text-sm md:text-base leading-relaxed">
+        <p className="max-w-2xl mx-auto font-Ovo pointer-events-none text-neutral-600 dark:text-neutral-300 text-sm md:text-base leading-relaxed">
           Curiosity leads the way as I build, break, and rebuild — growing through mistakes and every small win.
         </p>
 
