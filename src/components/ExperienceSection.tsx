@@ -32,15 +32,15 @@ export const ExperienceSection: React.FC = () => {
   const items: TimelineItem[] = [
     {
       period: '2026',
-      role: 'CTO & Full-Stack Developer – Hubverse (Jan 2026 – Mar 2026)',
-      techStack: 'React, React Native, Node.js, Express, SQLite WAL, Docker, GitHub Actions, JWT',
+      role: 'Full Stack Software Innovation Intern – Hubverse / VJStartup (Jan 2026 – Present)',
+      techStack: 'React, Node.js, Express, MongoDB, Docker, JWT, Google OAuth 2.0',
       description:
-        'Launched a React and React Native university events platform for 1,500+ students and 20+ clubs, reaching 500+ Google Play downloads. Built high-concurrency Node.js/Express APIs with SQLite in WAL mode for lock-free reads, added JWT/Google OAuth, automated QR check-in, and Docker/GitHub Actions releases.',
+        'Architected Hubverse, a scalable campus management and technical event ecosystem serving 1,500+ students and university clubs.',
       bullets: [
-        'Hubverse Platform: hubverse.in — Live campus event & club orchestration ecosystem.',
-        'SQLite WAL Mode: Zero-lock concurrent read architecture slashing check-in latency.',
-        'QR Admission Engine: Cryptographically signed offline-first QR ticket validation cutting queue times by 70%.',
-        'Automated CI/CD: Docker containerization with GitHub Actions pipelines reducing deployment cycles by 60%.',
+        'Architected Hubverse, a scalable campus management ecosystem using React, Node.js, and MongoDB.',
+        'Secured application endpoints by implementing JWT-based authentication and Google OAuth 2.0.',
+        'Developed an automated QR-based attendance module, cutting manual data processing time by 90%.',
+        'Deployed live production web platform at hubverse.in with cross-platform companion mobile applications.',
       ],
       images: [
         { src: '/assets/hubverse_project.webp', alt: 'Hubverse Platform' },
@@ -49,14 +49,14 @@ export const ExperienceSection: React.FC = () => {
     },
     {
       period: '2025 – Present',
-      role: 'Infrastructure & Security Lead – VJStartup, VNR VJIET (Oct 2025 – Present)',
-      techStack: 'Linux (Ubuntu/Debian), VAPT, Nginx, UFW / IPTables, SSH Hardening, Fail2ban',
+      role: 'Wing Member – Infra Wing, VJStartup (Jan 2026 – Present)',
+      techStack: 'Linux (Ubuntu/CentOS), VAPT, Nginx, UFW / IPTables, Server Hardening',
       description:
-        'Directing server infrastructure security, vulnerability assessments, and systems hardening across incubated startups and institute servers.',
+        'Leading infrastructure security, vulnerability assessments, and systems hardening protocols for production startup environments.',
       bullets: [
-        'Penetration Testing: Performed comprehensive VAPT across 5+ production Linux servers, remediating 15+ critical security misconfigurations.',
-        'Server Hardening: Configured SSH public-key enforcement, UFW/iptables firewalls, and fine-grained RBAC policies.',
-        'Intrusion Monitoring: Implemented real-time intrusion monitoring and log anomaly alerting with automated fail2ban IP mitigation.',
+        'Leading initiatives in Vulnerability Assessment and Penetration Testing (VAPT) to secure startup assets.',
+        'Overseeing Linux server hardening, firewall policies, and infrastructure security protocols for production environments.',
+        'Configured proactive intrusion monitoring and automated error auditing to safeguard system integrity.',
       ],
       images: [
         { src: '/assets/jarsh_wfa_project.webp', alt: 'Industrial Telemetry & Systems Security' },
@@ -64,26 +64,26 @@ export const ExperienceSection: React.FC = () => {
     },
     {
       period: '2025',
-      role: 'Server Management & DevOps Intern – Innovation Cell, VNR VJIET (Jul 2025 – Sep 2025)',
-      techStack: 'Linux Administration, Nginx Load Balancing, Apache JMeter, Docker, Microservices, Bash',
+      role: 'Server Management & DevOps Intern – Innovation Cell, VNR VJIET (Jul 2024 – Sep 2024)',
+      techStack: 'Linux (Ubuntu/CentOS), Nginx, Docker, DevOps Workflows, Bash',
       description:
-        'Maintained 10+ backend microservices and 3 production web properties at 99.8% uptime; Nginx load balancing cut latency 35%, and JMeter testing improved throughput 40% at 1,000+ concurrent users.',
+        'Maintained production servers and backend microservices with proactive monitoring and automated error auditing.',
       bullets: [
-        '99.8% Uptime SLA: Maintained 10+ backend microservices and 3 production web properties with high availability.',
-        'Nginx Load Balancing: Configured upstream reverse proxies and caching, reducing response latency by 35%.',
-        'Apache JMeter Benchmarking: Stress-tested APIs under sustained 1,000+ concurrent user loads, improving throughput by 40%.',
+        'Maintained 99.9% uptime for production servers by implementing proactive monitoring and load distribution.',
+        'Configured Linux (Ubuntu/CentOS) environments with automated log aggregation for real-time error auditing.',
+        'Managed DevOps workflows including automated backups and security patching to ensure system integrity.',
       ],
     },
     {
       period: '2024 – Present',
-      role: 'Technical Coordinator – ISTE Student Chapter, VNR VJIET (Sep 2024 – Present)',
-      techStack: 'Competitive Programming, Online Judges, System Architecture, Technical Mentorship',
+      role: 'Volunteer – ISTE Student Chapter, VNR VJIET (Aug 2024 – Present)',
+      techStack: 'Competitive Programming, Technical Workshops, Problem Solving',
       description:
-        'Organized 4+ technical workshops and coding hackathons for 500+ students; managed live coding judge servers and problem sets.',
+        'Coordinating technical workshops, hackathons, and problem-solving competitions for university engineering students.',
       bullets: [
-        'Hackathons & Bootcamps: Organized 4+ technical workshops and coding hackathons for 500+ participants.',
-        'Automated Judge System: Configured and operated real-time online judge servers and algorithmic evaluation problem sets.',
-        'Technical Mentorship: Mentored junior engineering students in Data Structures, Algorithms, and Full-Stack Engineering.',
+        'Assisted in organizing technical workshops and problem-solving competitions for 500+ participants.',
+        'Coordinated live coding contests and algorithmic problem review sessions.',
+        'Mentored junior students in Data Structures, Algorithms, and Full-Stack Engineering.',
       ],
     },
     {
