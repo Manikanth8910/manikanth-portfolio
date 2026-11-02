@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 export interface MaskContainerProps {
   children?: React.ReactNode;
@@ -11,76 +12,83 @@ export interface MaskContainerProps {
 export const MaskContainer: React.FC<MaskContainerProps> = ({
   children,
   revealText,
-  size = 40,
+  size = 30,
   revealSize = 600,
   className = '',
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState<{ x: number | null; y: number | null }>({
+    x: null,
+    y: null,
+  });
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const maskLayerRef = useRef<HTMLDivElement | null>(null);
-  const posRef = useRef<{ x: number; y: number }>({ x: -1000, y: -1000 });
-  const rafId = useRef<number | null>(null);
+  const rectRef = useRef<DOMRect | null>(null);
 
-  const updateMaskStyles = () => {
-    if (maskLayerRef.current) {
-      const currentSize = isHovered ? revealSize : size;
-      const posX = posRef.current.x - currentSize / 2;
-      const posY = posRef.current.y - currentSize / 2;
-      maskLayerRef.current.style.maskPosition = `${posX}px ${posY}px`;
-      (maskLayerRef.current.style as any).webkitMaskPosition = `${posX}px ${posY}px`;
-      maskLayerRef.current.style.maskSize = `${currentSize}px auto`;
-      (maskLayerRef.current.style as any).webkitMaskSize = `${currentSize}px auto`;
+  const updateRect = () => {
+    if (containerRef.current) {
+      rectRef.current = containerRef.current.getBoundingClientRect();
     }
-    rafId.current = null;
   };
 
-  useEffect(() => {
-    if (!rafId.current) {
-      rafId.current = requestAnimationFrame(updateMaskStyles);
+  const updateMousePosition = (e: MouseEvent) => {
+    if (!rectRef.current) {
+      updateRect();
     }
-  }, [isHovered, revealSize, size]);
+    const rect = rectRef.current;
+    if (rect) {
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      posRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
-      if (!rafId.current) {
-        rafId.current = requestAnimationFrame(updateMaskStyles);
-      }
-    };
+    updateRect();
+    el.addEventListener('mousemove', updateMousePosition, { passive: true });
+    el.addEventListener('mouseenter', updateRect, { passive: true });
+    window.addEventListener('resize', updateRect, { passive: true });
+    window.addEventListener('scroll', updateRect, { passive: true });
 
-    el.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => {
-      el.removeEventListener('mousemove', handleMouseMove);
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-        rafId.current = null;
-      }
+      el.removeEventListener('mousemove', updateMousePosition);
+      el.removeEventListener('mouseenter', updateRect);
+      window.removeEventListener('resize', updateRect);
+      window.removeEventListener('scroll', updateRect);
     };
-  }, [isHovered, revealSize, size]);
+  }, []);
+
+  const maskSize = isHovered ? revealSize : size;
+  const posX = mousePosition.x !== null ? mousePosition.x - maskSize / 2 : -maskSize;
+  const posY = mousePosition.y !== null ? mousePosition.y - maskSize / 2 : -maskSize;
 
   return (
-    <div
+    <motion.div
       ref={containerRef}
       className={`relative h-screen w-full overflow-hidden ${className}`}
+      animate={{
+        backgroundColor: isHovered ? 'var(--slate-900)' : 'transparent',
+      }}
+      transition={{
+        backgroundColor: { duration: 0.3 },
+      }}
     >
-      {/* Masked reveal layer */}
-      <div
-        ref={maskLayerRef}
-        className="absolute inset-0 flex h-full w-full items-center justify-center bg-black dark:bg-white [mask-image:url(/assets/mask.svg)] [mask-repeat:no-repeat] z-10 transition-[mask-size] duration-300 ease-out will-change-[mask-position,mask-size]"
-        style={{
-          maskPosition: '-1000px -1000px',
-          WebkitMaskPosition: '-1000px -1000px',
-          maskSize: `${size}px auto`,
-          WebkitMaskSize: `${size}px auto`,
+      {/* Masked reveal layer (black in light mode, white in dark mode) */}
+      <motion.div
+        className="absolute inset-0 flex h-full w-full items-center justify-center bg-black dark:bg-white [mask-image:url(/assets/mask.svg)] [mask-repeat:no-repeat] [mask-size:40px] z-10 will-change-[mask-position,mask-size]"
+        animate={{
+          maskPosition: `${posX}px ${posY}px`,
+          maskSize: `${maskSize}px`,
+        }}
+        transition={{
+          maskSize: { duration: 0.3, ease: 'easeInOut' },
+          maskPosition: { duration: 0.15, ease: 'linear' },
         }}
       >
+        <div className="absolute inset-0 z-0 h-full w-full bg-black opacity-50 dark:bg-white" />
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -88,13 +96,13 @@ export const MaskContainer: React.FC<MaskContainerProps> = ({
         >
           {children}
         </div>
-      </div>
+      </motion.div>
 
       {/* Base unmasked layer */}
       <div className="flex h-full w-full items-center justify-center">
         {revealText}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
