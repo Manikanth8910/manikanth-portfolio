@@ -1,0 +1,61 @@
+name: Uptime & Observability Bot
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  uptime-check:
+    name: Uptime & Health Check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          pip install certifi
+
+      - name: Run Uptime & Observability Probe
+        id: probe
+        env:
+          UPTIME_WEBHOOK_URL: ${{ secrets.UPTIME_WEBHOOK_URL }}
+        run: |
+          python3 scripts/uptime_bot.py
+
+      - name: Create Incident Issue on Outage
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `🚨 [Outage Alert] Portfolio Endpoint Down - ${new Date().toISOString().split('T')[0]}`;
+            const body = `### ⚠️ Incident Detected by Portfolio Uptime Bot\n\nOne or more endpoints on **https://mani8910.vercel.app** failed health verification or SSL check.\n\nPlease check the [Action Run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for detailed latency and status logs.`;
+            
+            // Check if open outage issue already exists to prevent duplicate spam
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['incident', 'uptime-bot']
+            });
+
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['incident', 'uptime-bot']
+              });
+            }

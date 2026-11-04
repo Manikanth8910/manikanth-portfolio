@@ -6,3 +6,5 @@ dist
 *.bak
 .vercel
 .env*
+.agents/
+project-skills.json

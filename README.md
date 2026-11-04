@@ -1,5 +1,8 @@
 # Manikanth Panuganti — Professional Developer Portfolio
 
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmani8910.vercel.app&label=portfolio%20status&style=flat-square)](https://mani8910.vercel.app)
+[![Uptime & Observability Bot](https://github.com/Manikanth8910/manikanth-portfolio/actions/workflows/uptime-bot.yml/badge.svg)](https://github.com/Manikanth8910/manikanth-portfolio/actions/workflows/uptime-bot.yml)
+
 > An award-winning, high-performance portfolio featuring pro-level animations, interactive physics particle background, magnetic cursor follower, interactive developer CLI terminal, procedural Web Audio synthesizer, 3D tilt cards, and live system telemetry.
 
 ---
@@ -52,3 +55,21 @@ Easily deploy to **Vercel**, **GitHub Pages**, or **Netlify** with zero configur
 - **Icons**: Lucide React + Custom SVGs
 - **Audio**: Web Audio API Procedural Synthesizer
 - **Celebration Effects**: Canvas Confetti
+
+---
+
+## 🛰️ Observability & Uptime Monitoring
+
+This portfolio features proactive uptime and latency observability across its edge endpoints:
+
+- **Automated In-Repo Uptime Bot**: Runs every 30 minutes via [GitHub Actions](.github/workflows/uptime-bot.yml), pinging `/`, `/about`, `/projects`, `/contact`, and `/manikanth_panuganti.pdf` with SSL certificate expiration checks and edge latency tracking.
+- **Run Health Check Locally**:
+  ```bash
+  npm run uptime:check
+  ```
+- **UptimeRobot External Integration**: Automated setup script in [scripts/setup_uptimerobot.py](scripts/setup_uptimerobot.py) and documentation in [UPTIME_MONITORING.md](UPTIME_MONITORING.md).
+  ```bash
+  export UPTIMEROBOT_API_KEY="your_api_key"
+  npm run uptime:setup
+  ```
+
